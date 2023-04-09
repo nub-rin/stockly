@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "872320721908",
+    "firebase_url": "https://stockly-8f3f4-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "stockly-8f3f4",
+    "storage_bucket": "stockly-8f3f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872320721908:android:3abf64a165d8fee7ee8fa1",
+        "android_client_info": {
+          "package_name": "com.example.stockly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872320721908-me55vr68205k11o8iqidftl7gtauaum4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq3B_FOIM6Ek9Q3eXmx397_YIG2s9Quj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872320721908-6am46m2uiet0h0kgbrlp3ljes2gsr06d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872320721908-d877ktjugckkh37gfo6ikgq9jv20arev.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.stockly"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
