@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDq3B_FOIM6Ek9Q3eXmx397_YIG2s9Quj8',
-    appId: '1:872320721908:android:3abf64a165d8fee7ee8fa1',
+    appId: '1:872320721908:android:7c069f353005962dee8fa1',
     messagingSenderId: '872320721908',
     projectId: 'stockly-8f3f4',
     databaseURL: 'https://stockly-8f3f4-default-rtdb.asia-southeast1.firebasedatabase.app',
@@ -60,11 +60,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyA7589l5DQboF3LTo-yNPLY3o1C0moAeTo',
-    appId: '1:872320721908:ios:ea864b079fcb07f5ee8fa1',
+    appId: '1:872320721908:ios:3b51aee2bc3f3fa6ee8fa1',
     messagingSenderId: '872320721908',
     projectId: 'stockly-8f3f4',
     databaseURL: 'https://stockly-8f3f4-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'stockly-8f3f4.appspot.com',
+    androidClientId: '872320721908-vg6nrpk66f6idctlv5jfeld6ckn7qgk4.apps.googleusercontent.com',
     iosClientId: '872320721908-d877ktjugckkh37gfo6ikgq9jv20arev.apps.googleusercontent.com',
     iosBundleId: 'com.example.stockly',
   );
