@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stockly/src/utils/routes.dart';
+import 'package:stockly/src/utils/user_data.dart';
 
 import '../utils/authentication.dart';
 

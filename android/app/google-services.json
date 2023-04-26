@@ -8,48 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:872320721908:android:16b63c92f0adcbd6ee8fa1",
-        "android_client_info": {
-          "package_name": "com.arin.stockly"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "872320721908-me55vr68205k11o8iqidftl7gtauaum4.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDq3B_FOIM6Ek9Q3eXmx397_YIG2s9Quj8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "872320721908-6am46m2uiet0h0kgbrlp3ljes2gsr06d.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "872320721908-d877ktjugckkh37gfo6ikgq9jv20arev.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.stockly"
-              }
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:872320721908:android:7c069f353005962dee8fa1",
         "android_client_info": {
           "package_name": "com.example.stockly"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "872320721908-76vfbgofhu5tmjhrjq43egeb40qmc5bu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stockly",
+            "certificate_hash": "836746393ecd44e6958eb59d64a5bd2d9b2bd56a"
+          }
+        },
         {
           "client_id": "872320721908-me55vr68205k11o8iqidftl7gtauaum4.apps.googleusercontent.com",
           "client_type": 3

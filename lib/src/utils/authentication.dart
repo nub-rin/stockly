@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:stockly/src/utils/user_data.dart';
 
 import '../pages/home.dart';
 import '../pages/login.dart';
@@ -62,6 +63,13 @@ class Auth {
                 backgroundColor: Colors.red,
               ),
             );
+          case 'user-disabled':
+            return ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('User disabled'),
+                backgroundColor: Colors.red,
+              ),
+            );
           default:
         }
       }
@@ -84,6 +92,12 @@ class Auth {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      await UserData().createUser(
+        _auth.currentUser!.displayName??'User',
+        _auth.currentUser!.email!,
+        _auth.currentUser!.phoneNumber??'',
+        _auth.currentUser!.photoURL??'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+      );
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'invalid-email':
@@ -96,5 +110,9 @@ class Auth {
       }
     }
     return 0;
+  }
+
+  getCurrentUser() {
+    return _auth.currentUser!;
   }
 }
