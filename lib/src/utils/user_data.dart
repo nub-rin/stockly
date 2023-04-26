@@ -32,4 +32,18 @@ class UserData {
   getFavoriteList() {
     return favorite.doc(uid).get();
   }
+
+  Future<void> addFavorite(String stock) async {
+    await favorite.doc(uid).update({
+      'favList': FieldValue.arrayUnion([stock]),
+    });
+  }
+
+  Future<void> removeFavorite(String stock) async {
+    await favorite.doc(uid).update({
+      'favList': FieldValue.arrayRemove([stock]),
+    });
+  }
+
+  
 }

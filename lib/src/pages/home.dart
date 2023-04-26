@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:stockly/src/utils/authentication.dart';
 
+import '../models/stock.dart';
 import '../utils/user_data.dart';
-import '../widgets/home_fav_list.dart';
+import '../widgets/home_trending_list.dart';
+import '../widgets/stock_list.dart';
+import 'favourites.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,7 +22,7 @@ class _HomeState extends State<Home> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 80, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
             child: FutureBuilder<DocumentSnapshot>(
               future: UserData().getUserData(),
               builder: (BuildContext context,
@@ -66,25 +68,61 @@ class _HomeState extends State<Home> {
           ),
           const HomeFavList(),
           const Spacer(),
-          Container(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: ElevatedButton(
-              onPressed: () {
-                Auth().signOut();
-              },
-              child: const Text('Sign Out'),
-              style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(1, 30, 30, 30),
-                onPrimary: Colors.white,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                ),
-              ),
-            ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height -
+                350, // Set a fixed height for the container
+            child: StockList(stocks: Stock.getAll()),
           ),
         ],
       ),
       backgroundColor: const Color.fromARGB(1, 30, 30, 30),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.article),
+            label: 'News',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey[500],
+        currentIndex: 0, // set the current index to the Favorites page
+        onTap: (int index) {
+          switch (index) {
+            case 0:
+              // Navigator.pushNamed(context, '/');
+              break;
+            case 1:
+              // Navigator.pushNamed(context, '/favorites');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FavoritePage(),
+                ),
+              );
+              break; // do nothing as we're already on the Favorites page
+            case 2:
+              Navigator.pushNamed(context, '/news');
+              break;
+            case 3:
+              Navigator.pushNamed(context, '/settings');
+              break;
+          }
+        },
+      ),
     );
   }
 }
