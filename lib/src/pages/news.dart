@@ -49,7 +49,7 @@ class _NewsPageState extends State<NewsPage> {
           : ListView.builder(
               itemCount: _recipes.length,
               itemBuilder: (context, index) {
-                return RecipeCard(
+                return NewsCards(
                   title: _recipes[index].title,
                   source: _recipes[index].source,
                   date: _recipes[index].date,

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class RecipeCard extends StatelessWidget {
+class NewsCards extends StatelessWidget {
   final String title;
   final String link;
   final String date;
   final String source;
 
-  RecipeCard({
+  NewsCards({
     required this.title,
     required this.link,
     required this.date,
@@ -41,7 +41,7 @@ class RecipeCard extends StatelessWidget {
                 Colors.black.withOpacity(0.35),
                 BlendMode.multiply,
               ),
-              image: AssetImage('assets/images/black.jpeg'),
+              image: AssetImage('lib/src/assets/images/black.jpeg'),
               fit: BoxFit.cover,
             ),
           ),
