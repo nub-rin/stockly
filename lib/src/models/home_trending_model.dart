@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HomeFavModel extends StatefulWidget {
+class HomeTrendingModel extends StatefulWidget {
   final String ticker;
   final String tickerName;
   final String tickerImage;
@@ -9,7 +9,7 @@ class HomeFavModel extends StatefulWidget {
   // final Color changePercentColor;
   final tickerGraph;
 
-  const HomeFavModel({
+  const HomeTrendingModel({
     super.key,
     required this.ticker,
     required this.tickerName,
@@ -21,10 +21,10 @@ class HomeFavModel extends StatefulWidget {
   });
 
   @override
-  State<HomeFavModel> createState() => _HomeFavModelState();
+  State<HomeTrendingModel> createState() => _HomeTrendingModelState();
 }
 
-class _HomeFavModelState extends State<HomeFavModel> {
+class _HomeTrendingModelState extends State<HomeTrendingModel> {
   @override
   Widget build(BuildContext context) {
     return Container(

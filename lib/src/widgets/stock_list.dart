@@ -6,9 +6,10 @@ import '../models/stock.dart';
 class StockList extends StatefulWidget {
   final List<Stock> stocks;
 
-  StockList({required this.stocks});
+  const StockList({super.key, required this.stocks});
 
   @override
+  // ignore: library_private_types_in_public_api
   _StockListState createState() => _StockListState();
 }
 
@@ -33,7 +34,7 @@ class _StockListState extends State<StockList> {
         final stock = widget.stocks[index];
 
         return ListTile(
-          contentPadding: EdgeInsets.all(10.0),
+          contentPadding: const EdgeInsets.all(10.0),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

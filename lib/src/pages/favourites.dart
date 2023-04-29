@@ -6,14 +6,14 @@ import 'package:stockly/src/models/fav_list.dart';
 import '../utils/user_data.dart';
 import 'home.dart';
 
-class FavoritePage extends StatefulWidget {
-  const FavoritePage({Key? key});
+class Favorite extends StatefulWidget {
+  const Favorite({Key? key});
 
   @override
-  _FavoritePageState createState() => _FavoritePageState();
+  _FavoriteState createState() => _FavoriteState();
 }
 
-class _FavoritePageState extends State<FavoritePage> {
+class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
               },
             ),
           ),
-          const HomeFavList(),
+          const HomeTrendingList(),
           const Spacer(),
           SizedBox(
             height: MediaQuery.of(context).size.height -
@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const FavoritePage(),
+                  builder: (context) => const Favorite(),
                 ),
               );
               break; // do nothing as we're already on the Favorites page

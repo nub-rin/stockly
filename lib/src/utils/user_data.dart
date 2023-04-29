@@ -10,7 +10,7 @@ class UserData {
   CollectionReference users = FirebaseFirestore.instance.collection('users');
   CollectionReference favorite = FirebaseFirestore.instance.collection('users').doc(Auth().getCurrentUser().uid).collection('fav');
 
-  Future<void> createUser(String name, String email, String phoneNumber ,String photoURL) async {
+  Future<void> createUser(String name, String email, String phoneNumber, String photoURL) async {
     await users.doc(uid).set({
       'name': name,
       'email': email,
@@ -44,6 +44,4 @@ class UserData {
       'favList': FieldValue.arrayRemove([stock]),
     });
   }
-
-  
 }

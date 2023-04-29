@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -27,14 +29,10 @@ class Auth {
     _auth.signOut();
   }
 
-  signIn(AuthCredential authCredential) {
-    _auth.signInWithCredential(authCredential);
-  }
-
   signInWithOTP(smsCode, verId) {
     AuthCredential authCredential = PhoneAuthProvider.credential(
         verificationId: verId, smsCode: smsCode);
-    signIn(authCredential);
+    _auth.signInWithCredential(authCredential);
   }
 
   signInWithEmailAndPassword(email, password, context) async {
@@ -84,7 +82,27 @@ class Auth {
     final AuthCredential authCredential = GoogleAuthProvider.credential(
         idToken: googleSignInAuthentication.idToken,
         accessToken: googleSignInAuthentication.accessToken);
-
+    
+    try {
+      UserCredential userCredential =
+          await _auth.signInWithCredential(authCredential);
+      await UserData().createUser(
+        userCredential.user!.displayName??'User',
+        userCredential.user!.email!,
+        userCredential.user!.phoneNumber??'',
+        userCredential.user!.photoURL??'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+      );
+      await UserData().createFavoriteList();
+    }
+    catch (e) {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Something went wrong'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
     return await _auth.signInWithCredential(authCredential);
   }
 
@@ -98,6 +116,7 @@ class Auth {
         _auth.currentUser!.phoneNumber??'',
         _auth.currentUser!.photoURL??'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
       );
+      await UserData().createFavoriteList();
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'invalid-email':

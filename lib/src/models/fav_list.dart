@@ -23,7 +23,6 @@ class _FavListState extends State<FavList> {
       },
       itemCount: widget.favList.length,
       itemBuilder: (context, index) {
-        final stock = widget.favList[index];
 
     return ListTile(
       contentPadding: const EdgeInsets.all(10.0),

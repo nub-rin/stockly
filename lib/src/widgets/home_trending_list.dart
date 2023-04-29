@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../models/home_trending_model.dart';
 import '../utils/user_data.dart';
 
-class HomeFavList extends StatelessWidget {
-  const HomeFavList({Key? key}) : super(key: key);
+class HomeTrendingList extends StatelessWidget {
+  const HomeTrendingList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

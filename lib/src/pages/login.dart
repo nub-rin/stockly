@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:stockly/src/utils/user_data.dart';
 
 import '../utils/authentication.dart';
 import '../utils/routes.dart';
@@ -139,10 +137,7 @@ class _LoginState extends State<Login> {
                         return;
                       }
                       
-                      Auth().signInWithEmailAndPassword(emailController.text, passwordController.text, context)
-                          .then(() {
-                        Navigator.pushNamed(context, StocklyRoutes.homeRoute);
-                      });
+                      Auth().signInWithEmailAndPassword(emailController.text, passwordController.text, context);
                     },
                     child: const Text('Login',
                         style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stockly/src/pages/login.dart';
 import 'package:stockly/src/pages/home.dart';
+import 'package:stockly/src/pages/settings.dart';
 import 'package:stockly/src/pages/signup.dart';
 import 'package:stockly/src/utils/routes.dart';
 
@@ -25,6 +26,7 @@ class Stockly extends StatelessWidget {
         StocklyRoutes.loginRoute: (context) => const Login(),
         StocklyRoutes.signupRoute: (context) => const Signup(),
         StocklyRoutes.homeRoute: (context) => const Home(),
+        StocklyRoutes.settingsRoute:(context) => const Settings(),
       },
       debugShowCheckedModeBanner: false,
     );
