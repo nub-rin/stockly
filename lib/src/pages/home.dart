@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:stockly/src/pages/news.dart';
 
 import '../models/stock.dart';
 import '../utils/user_data.dart';
@@ -115,7 +116,13 @@ class _HomeState extends State<Home> {
               );
               break; // do nothing as we're already on the Favorites page
             case 2:
-              Navigator.pushNamed(context, '/news');
+              // Navigator.pushNamed(context, '/news');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NewsPage(),
+                ),
+              );
               break;
             case 3:
               Navigator.pushNamed(context, '/settings');
