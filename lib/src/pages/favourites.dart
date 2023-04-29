@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:stockly/src/models/fav_list.dart';
+import 'package:stockly/src/pages/news.dart';
 
 import '../utils/user_data.dart';
 import 'home.dart';
@@ -53,7 +54,6 @@ class _FavoriteState extends State<Favorite> {
             return const Text("loading");
           },
         ),
-
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
@@ -88,7 +88,13 @@ class _FavoriteState extends State<Favorite> {
               case 1:
                 break; // do nothing as we're already on the Favorites page
               case 2:
-                Navigator.pushNamed(context, '/news');
+                // Navigator.pushNamed(context, '/news');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const NewsPage(),
+                  ),
+                );
                 break;
               case 3:
                 Navigator.pushNamed(context, '/settings');

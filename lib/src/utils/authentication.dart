@@ -3,13 +3,12 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:stockly/src/pages/onBoarding.dart';
 import 'package:stockly/src/utils/user_data.dart';
 
-import '../pages/home.dart';
 import '../pages/login.dart';
 
 class Auth {
-
   final _auth = FirebaseAuth.instance;
 
   handleAuth() {
@@ -17,7 +16,8 @@ class Auth {
       stream: _auth.authStateChanges(),
       builder: (BuildContext context, snapshot) {
         if (snapshot.hasData) {
-          return const Home();
+          return const OnBoardingScreen();
+          // return const Home();
         } else {
           return const Login();
         }
@@ -30,47 +30,47 @@ class Auth {
   }
 
   signInWithOTP(smsCode, verId) {
-    AuthCredential authCredential = PhoneAuthProvider.credential(
-        verificationId: verId, smsCode: smsCode);
+    AuthCredential authCredential =
+        PhoneAuthProvider.credential(verificationId: verId, smsCode: smsCode);
     _auth.signInWithCredential(authCredential);
   }
 
   signInWithEmailAndPassword(email, password, context) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      } on FirebaseAuthException catch (e) {
-        switch (e.code) {
-          case 'invalid-email':
-            return ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Invalid Email'),
-                backgroundColor: Colors.red,
-              ),
-            );
-          case 'user-not-found':
-            return ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('User not found'),
-                backgroundColor: Colors.red,
-              ),
-            );
-          case 'wrong-password':
-            return ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Wrong Password'),
-                backgroundColor: Colors.red,
-              ),
-            );
-          case 'user-disabled':
-            return ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('User disabled'),
-                backgroundColor: Colors.red,
-              ),
-            );
-          default:
-        }
+    } on FirebaseAuthException catch (e) {
+      switch (e.code) {
+        case 'invalid-email':
+          return ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Invalid Email'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        case 'user-not-found':
+          return ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('User not found'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        case 'wrong-password':
+          return ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Wrong Password'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        case 'user-disabled':
+          return ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('User disabled'),
+              backgroundColor: Colors.red,
+            ),
+          );
+        default:
       }
+    }
   }
 
   Future<UserCredential> signInWithGoogle(BuildContext context) async {
@@ -111,10 +111,11 @@ class Auth {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       await UserData().createUser(
-        _auth.currentUser!.displayName??'User',
+        _auth.currentUser!.displayName ?? 'User',
         _auth.currentUser!.email!,
-        _auth.currentUser!.phoneNumber??'',
-        _auth.currentUser!.photoURL??'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+        _auth.currentUser!.phoneNumber ?? '',
+        _auth.currentUser!.photoURL ??
+            'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
       );
       await UserData().createFavoriteList();
     } on FirebaseAuthException catch (e) {
