@@ -26,7 +26,7 @@ class Stockly extends StatelessWidget {
         StocklyRoutes.loginRoute: (context) => const Login(),
         StocklyRoutes.signupRoute: (context) => const Signup(),
         StocklyRoutes.homeRoute: (context) => const Home(),
-        StocklyRoutes.settingsRoute:(context) => const Settings(),
+        StocklyRoutes.settingsRoute: (context) => SettingsPage(),
       },
       debugShowCheckedModeBanner: false,
     );
