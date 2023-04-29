@@ -44,4 +44,11 @@ class UserData {
       'favList': FieldValue.arrayRemove([stock]),
     });
   }
+
+  Future<void> updateUserData(String name, String phoneNumber) async {
+    await users.doc(uid).update({
+      'name': name,
+      'phoneNumber': phoneNumber,
+    });
+  }
 }

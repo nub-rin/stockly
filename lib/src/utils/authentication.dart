@@ -82,19 +82,21 @@ class Auth {
     final AuthCredential authCredential = GoogleAuthProvider.credential(
         idToken: googleSignInAuthentication.idToken,
         accessToken: googleSignInAuthentication.accessToken);
-    
+
     try {
       UserCredential userCredential =
           await _auth.signInWithCredential(authCredential);
-      await UserData().createUser(
-        userCredential.user!.displayName??'User',
-        userCredential.user!.email!,
-        userCredential.user!.phoneNumber??'',
-        userCredential.user!.photoURL??'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-      );
-      await UserData().createFavoriteList();
-    }
-    catch (e) {
+      if (userCredential.additionalUserInfo!.isNewUser) {
+        await UserData().createUser(
+          userCredential.user!.displayName ?? 'User',
+          userCredential.user!.email!,
+          userCredential.user!.phoneNumber ?? '',
+          userCredential.user!.photoURL ??
+              'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+        );
+        await UserData().createFavoriteList();
+      }
+    } catch (e) {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
