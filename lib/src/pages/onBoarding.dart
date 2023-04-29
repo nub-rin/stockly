@@ -14,17 +14,17 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   List onBoardingData = [
     {
-      "image": 'lib/src/assets/images/screen1.png',
+      "image": 'lib/src/assets/images/onboarding1.png',
       "title": 'Care Your Family',
       "description": 'The process can include educating new'
     },
     {
-      "image": 'lib/src/assets/images/screen2.png',
+      "image": 'lib/src/assets/images/onboarding2.png',
       "title": 'Act ahead of time',
       "description": 'No holding back'
     },
     {
-      "image": 'lib/src/assets/images/screen3.png',
+      "image": 'lib/src/assets/images/onboarding3.png',
       "title": 'Go to Ahead!',
       "description": 'Explore the App...'
     },
