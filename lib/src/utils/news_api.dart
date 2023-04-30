@@ -16,10 +16,9 @@ class RecipeApi {
     });
     List<News> lst = [];
     final parsedData = json.decode(response.body) as List;
-    print(parsedData);
-    parsedData.forEach((element) {
+    for (var element in parsedData) {
       lst.add(News.fromJson(element));
-    });
+    }
     return lst;
   }
 }

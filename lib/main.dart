@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stockly/src/models/stock.dart';
 import 'package:stockly/src/pages/change_details.dart';
 import 'package:stockly/src/pages/login.dart';
 import 'package:stockly/src/pages/home.dart';
