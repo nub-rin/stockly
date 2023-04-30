@@ -37,30 +37,33 @@ class _HomeState extends State<Home> {
                 if (snapshot.connectionState == ConnectionState.done) {
                   Map<String, dynamic> data =
                       snapshot.data!.data() as Map<String, dynamic>;
-                  return Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: NetworkImage(data['photoURL']),
-                        radius: 20,
-                      ),
-                      Container(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Text(
-                            "Hello, ${data['name']}",
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          )),
-                      const Spacer(),
-                      IconButton(
-                        icon: const Icon(Icons.search),
-                        color: Colors.white,
-                        onPressed: () {
-                          print("Search");
-                        },
-                      ),
-                    ],
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(data['photoURL']),
+                          radius: 20,
+                        ),
+                        Container(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              "Hello, ${data['name']}",
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            )),
+                        const Spacer(),
+                        IconButton(
+                          icon: const Icon(Icons.search),
+                          color: Colors.white,
+                          onPressed: () {
+                            print("Search");
+                          },
+                        ),
+                      ],
+                    ),
                   );
                 }
                 return const Text("Loading");
@@ -90,6 +93,10 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(Icons.article),
             label: 'News',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'Learning',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
@@ -125,6 +132,9 @@ class _HomeState extends State<Home> {
               );
               break;
             case 3:
+              // Navigator.pushNamed(context, '/learning');
+              break;
+            case 4:
               Navigator.pushNamed(context, '/settings');
               break;
           }

@@ -69,6 +69,10 @@ class _FavoriteState extends State<Favorite> {
               label: 'News',
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.school),
+              label: 'Learning',
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: 'Settings',
             ),
@@ -97,6 +101,9 @@ class _FavoriteState extends State<Favorite> {
                 );
                 break;
               case 3:
+                // Navigator.pushNamed(context, '/learning');
+                break;
+              case 4:
                 Navigator.pushNamed(context, '/settings');
                 break;
             }
