@@ -40,7 +40,9 @@ class _StockListState extends State<StockList> {
               context,
               MaterialPageRoute(
                 // builder: (context) => StockPage(stock: stock),
-                builder: (context) => StockPage(),
+                builder: (context) => StockPage(
+                  stock: stock,
+                ),
               ),
             );
           },
