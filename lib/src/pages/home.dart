@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:stockly/src/pages/news.dart';
+import 'package:stockly/src/pages/welcome_screen.dart';
 
 import '../models/stock.dart';
 import '../utils/user_data.dart';
@@ -132,6 +133,12 @@ class _HomeState extends State<Home> {
               );
               break;
             case 3:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const WelcomeScreen(),
+                ),
+              );
               // Navigator.pushNamed(context, '/learning');
               break;
             case 4:
