@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stockly/src/pages/stock_details.dart';
 import 'package:stockly/src/utils/user_data.dart';
 
 import '../models/stock.dart';
@@ -6,10 +7,9 @@ import '../models/stock.dart';
 class StockList extends StatefulWidget {
   final List<Stock> stocks;
 
-  const StockList({super.key, required this.stocks});
+  const StockList({Key? key, required this.stocks}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _StockListState createState() => _StockListState();
 }
 
@@ -33,66 +33,78 @@ class _StockListState extends State<StockList> {
       itemBuilder: (context, index) {
         final stock = widget.stocks[index];
 
-        return ListTile(
-          contentPadding: const EdgeInsets.all(10.0),
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text("${stock.symbol}",
-                  style: const TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500)),
-              Text("${stock.company}",
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.w300))
-            ],
-          ),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text("\$${stock.price}",
-                  style: const TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500)),
-              const SizedBox(width: 10),
-              Container(
-                width: 75,
-                height: MediaQuery.of(context).size.height * 0.021,
-                alignment: Alignment.centerRight,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.red,
-                ),
-                child: Center(
-                  child: Text(
-                    "${stock.change}%",
+        return GestureDetector(
+          onTap: () {
+            // Push a new Stock page onto the navigation stack
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                // builder: (context) => StockPage(stock: stock),
+                builder: (context) => StockPage(),
+              ),
+            );
+          },
+          child: ListTile(
+            contentPadding: const EdgeInsets.all(10.0),
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text("${stock.symbol}",
                     style: const TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 24.0,
                         color: Colors.white,
-                        fontWeight: FontWeight.w500),
+                        fontWeight: FontWeight.w500)),
+                Text("${stock.company}",
+                    style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.grey[500],
+                        fontWeight: FontWeight.w300))
+              ],
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text("\$${stock.price}",
+                    style: const TextStyle(
+                        fontSize: 24.0,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500)),
+                const SizedBox(width: 10),
+                Container(
+                  width: 75,
+                  height: MediaQuery.of(context).size.height * 0.021,
+                  alignment: Alignment.centerRight,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: Colors.red,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "${stock.change}%",
+                      style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {
-                  UserData().addFavorite('${stock.symbol}');
-                  setState(() {
-                    _isFavoriteList[index] = !_isFavoriteList[index];
-                  });
-                },
-                child: Icon(
-                  _isFavoriteList[index]
-                      ? Icons.favorite
-                      : Icons.favorite_border,
-                  color: _isFavoriteList[index] ? Colors.red : Colors.white,
+                const SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    UserData().addFavorite('${stock.symbol}');
+                    setState(() {
+                      _isFavoriteList[index] = !_isFavoriteList[index];
+                    });
+                  },
+                  child: Icon(
+                    _isFavoriteList[index]
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: _isFavoriteList[index] ? Colors.red : Colors.white,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
