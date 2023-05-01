@@ -25,8 +25,8 @@ class _NewsPageState extends State<NewsPage> {
     setState(() {
       _isLoading = false;
     });
-    print(_recipes.length);
-    print(_recipes);
+    // print(_recipes.length);
+    // print(_recipes);
   }
 
   @override

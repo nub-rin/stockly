@@ -72,10 +72,10 @@ class _HomeState extends State<Home> {
             ),
           ),
           const HomeTrendingList(),
-          const Spacer(),
+          // const Spacer(),
           SizedBox(
             height: MediaQuery.of(context).size.height -
-                350, // Set a fixed height for the container
+                400, // Set a fixed height for the container
             child: StockList(stocks: Stock.getAll()),
           ),
         ],

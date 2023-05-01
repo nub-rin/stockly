@@ -59,8 +59,12 @@ class StockPage extends StatefulWidget {
 }
 
 class _StockPageState extends State<StockPage> {
-  String url = 'http://127.0.0.1:5000/stock/amzn';
-  String url2 = 'http://127.0.0.1:5000/stock/amzn/future';
+  // String url = 'http://127.0.0.1:8000/stock/${widget.stock.company}';
+  // String url2 = 'http://127.0.0.1:8000/stock/${widget.stock.company}/future';
+  // String url =
+  //     'http://ec2-54-95-231-4.ap-northeast-1.compute.amazonaws.com/stock/amzn';
+  // String url2 =
+  //     'http://ec2-54-95-231-4.ap-northeast-1.compute.amazonaws.com/stock/amzn/future';
   List<dynamic> decodedData = [];
   List<double> decodedData2 = [];
   List<String> dates = [];
@@ -72,7 +76,8 @@ class _StockPageState extends State<StockPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Create a list of dates starting from 2018-04-30
+    String url = 'http://127.0.0.1:8000/stock/' + '${widget.stock.company}';
+    String url2 = 'http://127.0.0.1:8000/stock/${widget.stock.company}/future';
     DateTime startDate = DateTime(2018, 4, 30);
     for (int i = 0; i < 1288; i++) {
       dates.add(startDate.toString().substring(0, 10));
