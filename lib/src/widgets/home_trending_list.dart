@@ -51,7 +51,7 @@ class _HomeTrendingListState extends State<HomeTrendingList> {
             style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.white),
+                color: Colors.grey),
           ),
         ),
         const SizedBox(height: 16.0),
@@ -67,7 +67,7 @@ class _HomeTrendingListState extends State<HomeTrendingList> {
                         ticker: trending[index],
                         tickerChangePercent: '12',
                         tickerCurrentPrice: '12',
-                        tickerImage: 'https://picsum.photos/200/300',
+                        // tickerImage: 'https://picsum.photos/200/300',
                         tickerName: trending[index],
                       );
                     }))

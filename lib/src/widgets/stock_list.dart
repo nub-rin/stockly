@@ -26,6 +26,11 @@ class _StockListState extends State<StockList> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      padding: EdgeInsets.only(
+        left: MediaQuery.of(context).size.width * 0.05,
+        right: MediaQuery.of(context).size.width * 0.05,
+        top: MediaQuery.of(context).size.height * 0.02,
+      ),
       separatorBuilder: (context, index) {
         return Divider(color: Colors.grey[500]);
       },
@@ -54,12 +59,12 @@ class _StockListState extends State<StockList> {
               children: <Widget>[
                 Text("${stock.symbol}",
                     style: const TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         color: Colors.white,
                         fontWeight: FontWeight.w500)),
                 Text("${stock.company}",
                     style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                         color: Colors.grey[500],
                         fontWeight: FontWeight.w300))
               ],
@@ -69,12 +74,12 @@ class _StockListState extends State<StockList> {
               children: <Widget>[
                 Text("\$${stock.price}",
                     style: const TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         color: Colors.white,
                         fontWeight: FontWeight.w500)),
                 const SizedBox(width: 10),
                 Container(
-                  width: 75,
+                  width: 50,
                   height: MediaQuery.of(context).size.height * 0.021,
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
