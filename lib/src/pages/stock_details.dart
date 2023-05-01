@@ -1,48 +1,3 @@
-// import 'package:flutter/material.dart';
-// import '../models/stock.dart';
-
-// class StockPage extends StatelessWidget {
-//   final Stock stock;
-
-//   const StockPage({Key? key, required this.stock}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('${stock.symbol}'),
-//       ),
-//       body: Center(
-//         child: Padding(
-//           padding: const EdgeInsets.all(16.0),
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               Text(
-//                 'Name: ${stock.company}',
-//                 style: const TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-//               ),
-//               const SizedBox(height: 16.0),
-//               Text(
-//                 'Price: \$${stock.price}',
-//                 style: const TextStyle(fontSize: 18.0),
-//               ),
-//               const SizedBox(height: 8.0),
-//               Text(
-//                 'Change: ${stock.change}%',
-//                 style: TextStyle(
-//                   fontSize: 18.0,
-//                   color: Colors.red,
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -76,8 +31,9 @@ class _StockPageState extends State<StockPage> {
 
   @override
   Widget build(BuildContext context) {
-    String url = 'http://127.0.0.1:8000/stock/' + '${widget.stock.company}';
-    String url2 = 'http://127.0.0.1:8000/stock/${widget.stock.company}/future';
+    String url = 'http://127.0.0.1:5000/stock/' + '${widget.stock.company}';
+    String url2 =
+        'http://127.0.0.1:5000/stock/' + '${widget.stock.company}' + '/future';
     DateTime startDate = DateTime(2018, 4, 30);
     for (int i = 0; i < 1288; i++) {
       dates.add(startDate.toString().substring(0, 10));
@@ -90,18 +46,12 @@ class _StockPageState extends State<StockPage> {
         backgroundColor: Colors.black,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 20),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Name: ${widget.stock.company}',
-                style: const TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
               const SizedBox(height: 16.0),
               Text(
                 'Price: \$${widget.stock.price}',
@@ -120,50 +70,71 @@ class _StockPageState extends State<StockPage> {
               ),
             ],
           ),
-          TextButton(
-            onPressed: () async {
-              var data = await fetchData(url);
-              setState(() {
-                decodedData = jsonDecode(data);
-                for (int i = 0; i < decodedData.length; i++) {
-                  if (i < numbers.length) {
-                    decodedData2.add(decodedData[i]);
-                  } else {
-                    decodedData2.add(0.0);
+          Padding(
+            padding: const EdgeInsets.only(left: 20, top: 20),
+            child: ElevatedButton(
+              onPressed: () async {
+                var data = await fetchData(url);
+                setState(() {
+                  decodedData = jsonDecode(data);
+                  for (int i = 0; i < decodedData.length; i++) {
+                    if (i < numbers.length) {
+                      decodedData2.add(decodedData[i]);
+                    } else {
+                      decodedData2.add(0.0);
+                    }
                   }
-                }
-              });
-            },
-            child: Text(
-              'Fetch closing price Graph of ${widget.stock.company}',
-              style: TextStyle(
-                  fontSize: 16,
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: BorderSide(color: Colors.blue, width: 2),
+                ),
+              ),
+              child: Text(
+                'Fetch closing price Graph of ${widget.stock.company}',
+                style: TextStyle(
+                  fontSize: 10,
                   color: Colors.blue,
-                  backgroundColor: Colors.black),
+                ),
+              ),
             ),
           ),
-          TextButton(
-            onPressed: () async {
-              // var data = await fetchData(url);
-              var futureData = await fetchData(url2);
-              setState(() {
-                futurePredictions = jsonDecode(futureData);
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: ElevatedButton(
+              onPressed: () async {
+                var futureData = await fetchData(url2);
+                setState(() {
+                  futurePredictions = jsonDecode(futureData);
 
-                for (int i = 0; i < futurePredictions.length; i++) {
-                  if (i < numbers.length) {
-                    futurePredictions2.add(futurePredictions[i]);
-                  } else {
-                    futurePredictions.add(0.0);
+                  for (int i = 0; i < futurePredictions.length; i++) {
+                    if (i < numbers.length) {
+                      futurePredictions2.add(futurePredictions[i]);
+                    } else {
+                      futurePredictions.add(0.0);
+                    }
                   }
-                }
-              });
-            },
-            child: Text(
-              'Fetch Predicted Future price Graph of ${widget.stock.company}',
-              style: TextStyle(
-                  fontSize: 16,
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: BorderSide(color: Colors.lightGreen, width: 2),
+                ),
+              ),
+              child: Text(
+                'Fetch Predicted Future price Graph of ${widget.stock.company}',
+                style: TextStyle(
+                  fontSize: 10,
                   color: Colors.lightGreen,
-                  backgroundColor: Colors.black),
+                ),
+              ),
             ),
           ),
           SizedBox(height: 20),

@@ -55,14 +55,14 @@ class _HomeState extends State<Home> {
                                 fontSize: 20,
                               ),
                             )),
-                        const Spacer(),
-                        IconButton(
-                          icon: const Icon(Icons.search),
-                          color: Colors.white,
-                          onPressed: () {
-                            print("Search");
-                          },
-                        ),
+                        // const Spacer(),
+                        // IconButton(
+                        //   icon: const Icon(Icons.search),
+                        //   color: Colors.white,
+                        //   onPressed: () {
+                        //     print("Search");
+                        //   },
+                        // ),
                       ],
                     ),
                   );
