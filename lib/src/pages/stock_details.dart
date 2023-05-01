@@ -46,7 +46,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:stockly/src/models/function.dart';
+import 'package:stockly/src/utils/function.dart';
 import 'package:stockly/src/models/stock.dart';
 
 class StockPage extends StatefulWidget {
