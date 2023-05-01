@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stockly/src/widgets/news_card.dart';
 import 'package:stockly/src/models/news.dart';
-import 'package:stockly/src/utils/news.api.dart';
+import 'package:stockly/src/utils/news_api.dart';
 
 class NewsPage extends StatefulWidget {
   const NewsPage({super.key});

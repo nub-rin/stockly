@@ -6,8 +6,6 @@ class HomeTrendingModel extends StatefulWidget {
   final String tickerImage;
   final String tickerCurrentPrice;
   final String tickerChangePercent;
-  // final Color changePercentColor;
-  final tickerGraph;
 
   const HomeTrendingModel({
     super.key,
@@ -16,8 +14,6 @@ class HomeTrendingModel extends StatefulWidget {
     required this.tickerImage,
     required this.tickerCurrentPrice,
     required this.tickerChangePercent,
-    // required this.changePercentColor,
-    this.tickerGraph,
   });
 
   @override
@@ -48,13 +44,6 @@ class _HomeTrendingModelState extends State<HomeTrendingModel> {
               // space
               const Spacer(
                 flex: 1,
-              ),
-              Text(
-                widget.tickerGraph,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                ),
               ),
             ],
           ),
