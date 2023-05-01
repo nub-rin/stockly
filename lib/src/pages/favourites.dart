@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:stockly/src/models/fav_list.dart';
 import 'package:stockly/src/pages/news.dart';
+import 'package:stockly/src/pages/welcome_screen.dart';
 
 import '../utils/user_data.dart';
 import 'home.dart';
@@ -102,6 +103,12 @@ class _FavoriteState extends State<Favorite> {
                 break;
               case 3:
                 // Navigator.pushNamed(context, '/learning');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const WelcomeScreen(),
+                  ),
+                );
                 break;
               case 4:
                 Navigator.pushNamed(context, '/settings');

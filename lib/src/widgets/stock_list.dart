@@ -40,23 +40,26 @@ class _StockListState extends State<StockList> {
               context,
               MaterialPageRoute(
                 // builder: (context) => StockPage(stock: stock),
-                builder: (context) => StockPage(),
+                builder: (context) => StockPage(
+                  stock: stock,
+                ),
               ),
             );
           },
           child: ListTile(
-            contentPadding: const EdgeInsets.all(10.0),
+            // contentPadding: const EdgeInsets.all(10.0),
+            contentPadding: const EdgeInsets.only(bottom: 10.0),
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text("${stock.symbol}",
                     style: const TextStyle(
-                        fontSize: 24.0,
+                        fontSize: 20.0,
                         color: Colors.white,
                         fontWeight: FontWeight.w500)),
                 Text("${stock.company}",
                     style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                         color: Colors.grey[500],
                         fontWeight: FontWeight.w300))
               ],
@@ -66,7 +69,7 @@ class _StockListState extends State<StockList> {
               children: <Widget>[
                 Text("\$${stock.price}",
                     style: const TextStyle(
-                        fontSize: 24.0,
+                        fontSize: 20.0,
                         color: Colors.white,
                         fontWeight: FontWeight.w500)),
                 const SizedBox(width: 10),
@@ -82,7 +85,7 @@ class _StockListState extends State<StockList> {
                     child: Text(
                       "${stock.change}%",
                       style: const TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 12.0,
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
                     ),

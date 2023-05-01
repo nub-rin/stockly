@@ -23,52 +23,51 @@ class _FavListState extends State<FavList> {
       },
       itemCount: widget.favList.length,
       itemBuilder: (context, index) {
-
-    return ListTile(
-      contentPadding: const EdgeInsets.all(10.0),
-      title:  Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(widget.favList[index],
-        style: const TextStyle(
+        return ListTile(
+          contentPadding: const EdgeInsets.all(10.0),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(widget.favList[index],
+                  style: const TextStyle(
                       fontSize: 24.0,
                       color: Colors.white,
                       fontWeight: FontWeight.w500)),
-        Text('Company Name',
-        style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.grey[500],
-                      fontWeight: FontWeight.w300)),
-      ],
-    ),
-    trailing: Row(
+              // Text(widget.favList[index],
+              //     style: TextStyle(
+              //         fontSize: 20.0,
+              //         color: Colors.grey[500],
+              //         fontWeight: FontWeight.w300)),
+            ],
+          ),
+          trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              const Text('asasas',
-                  style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500)),
-              const SizedBox(width: 10),
-              Container(
-                width: 75,
-                height: MediaQuery.of(context).size.height * 0.021,
-                alignment: Alignment.centerRight,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: Colors.red,
-                ),
-                child: const Center(
-                  child: Text(
-                    'asasas',
-                    style: TextStyle(
-                        fontSize: 16.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 10),
+              // const Text('asasas',
+              //     style: TextStyle(
+              //         fontSize: 24.0,
+              //         color: Colors.white,
+              //         fontWeight: FontWeight.w500)),
+              // const SizedBox(width: 10),
+              // Container(
+              //   width: 75,
+              //   height: MediaQuery.of(context).size.height * 0.021,
+              //   alignment: Alignment.centerRight,
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(5.0),
+              //     color: Colors.red,
+              //   ),
+              //   child: const Center(
+              //     child: Text(
+              //       'asasas',
+              //       style: TextStyle(
+              //           fontSize: 16.0,
+              //           color: Colors.white,
+              //           fontWeight: FontWeight.w500),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(width: 10),
               GestureDetector(
                 onTap: () {
                   UserData().removeFavorite(widget.favList[index]);
@@ -79,11 +78,11 @@ class _FavListState extends State<FavList> {
                 child: const Icon(
                   Icons.delete,
                   color: Colors.grey,
-                  ),
+                ),
               ),
             ],
           ),
-    );
+        );
       },
     );
   }

@@ -87,18 +87,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   Image.asset(
                     onBoardingData[index]['image'],
                   ),
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //     image: DecorationImage(
-                  //       colorFilter: ColorFilter.mode(
-                  //         Colors.black.withOpacity(0.35),
-                  //         BlendMode.multiply,
-                  //       ),
-                  //       image: AssetImage(onBoardingData[index]['image']),
-                  //       fit: BoxFit.cover,
-                  //     ),
-                  //   ),
-                  // ),
                   Text(
                     onBoardingData[index]['title'],
                     style: TextStyle(
@@ -130,11 +118,18 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: whiteColor,
+                            color: Colors.white,
                           )),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        padding: const EdgeInsets.only(top: 20, bottom: 70),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
                     )
                   : Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.only(bottom: 70),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(onBoardingData.length, (index) {
@@ -172,7 +167,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     padding: const EdgeInsets.all(20),
                     child: const Icon(
                       Icons.arrow_back_ios,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -187,7 +182,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     padding: const EdgeInsets.all(20),
                     child: const Icon(
                       Icons.arrow_forward_ios,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                 ),

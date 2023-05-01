@@ -11,7 +11,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -34,7 +33,8 @@ class _LoginState extends State<Login> {
                       child: SizedBox(
                     height: 60,
                     width: 60,
-                    child: Image(image: AssetImage('lib/src/assets/images/logo.png')),
+                    child: Image(
+                        image: AssetImage('lib/src/assets/images/logo.png')),
                   )),
                 ),
                 Container(
@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(top: 100),
+            padding: const EdgeInsets.only(top: 50),
             child: Column(
               children: [
                 Container(
@@ -130,14 +130,16 @@ class _LoginState extends State<Login> {
                       if (passwordController.text.length < 6) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Password must be atleast 6 characters'),
+                            content:
+                                Text('Password must be atleast 6 characters'),
                             backgroundColor: Colors.red,
                           ),
                         );
                         return;
                       }
-                      
-                      Auth().signInWithEmailAndPassword(emailController.text, passwordController.text, context);
+
+                      Auth().signInWithEmailAndPassword(emailController.text,
+                          passwordController.text, context);
                     },
                     child: const Text('Login',
                         style: TextStyle(
@@ -150,115 +152,112 @@ class _LoginState extends State<Login> {
             ),
           ),
           Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 150,
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 10, right: 10),
-                        child: const Text('OR',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                            )),
-                      ),
-                      Container(
-                        width: 150,
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                    ],
-                  )
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
-                  width: 360,
-                  child: TextButton(
-                    onPressed: () {
-                      Auth().signInWithGoogle(context);
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          child: const Image(
-                            image: AssetImage('lib/src/assets/images/google_logo.png'),
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                        const Text('Sign-in with Google',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                            )),
-                      ],
+              margin: const EdgeInsets.only(top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 150,
+                    height: 1,
+                    color: Colors.grey,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    child: const Text('OR',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        )),
+                  ),
+                  Container(
+                    width: 150,
+                    height: 1,
+                    color: Colors.grey,
+                  ),
+                ],
+              )),
+          Container(
+            margin: const EdgeInsets.only(top: 20),
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+            width: 360,
+            child: TextButton(
+              onPressed: () {
+                Auth().signInWithGoogle(context);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: const Image(
+                      image:
+                          AssetImage('lib/src/assets/images/google_logo.png'),
+                      height: 20,
+                      width: 20,
                     ),
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)),
-                  width: 360,
-                  child: TextButton(
-                    onPressed: () {
-                     // ! TODO: Add phone authentication
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 10),
-                          child: const Image(
-                            image: AssetImage('lib/src/assets/images/phone_icon.png'),
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                        const Text('Sign-in with Phone',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                            )),
-                      ],
+                  const Text('Sign-in with Google',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      )),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 20),
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+            width: 360,
+            child: TextButton(
+              onPressed: () {
+                // ! TODO: Add phone authentication
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    child: const Image(
+                      image: AssetImage('lib/src/assets/images/phone_icon.png'),
+                      height: 20,
+                      width: 20,
                     ),
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 45),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('New User?',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                          )),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, StocklyRoutes.signupRoute);
-                        },
-                        child: const Text('Sign-Up',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              decoration: TextDecoration.underline,
-                            )),
-                      ),
-                    ],
-                  )
-                )
+                  const Text('Sign-in with Phone',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      )),
+                ],
+              ),
+            ),
+          ),
+          Container(
+              margin: const EdgeInsets.only(top: 45),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('New User?',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                      )),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, StocklyRoutes.signupRoute);
+                    },
+                    child: const Text('Sign-Up',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          decoration: TextDecoration.underline,
+                        )),
+                  ),
+                ],
+              ))
         ],
       ),
       backgroundColor: const Color.fromARGB(1, 30, 30, 30),

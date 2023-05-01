@@ -46,36 +46,32 @@ class _HomeTrendingListState extends State<HomeTrendingList> {
         Container(
           padding: const EdgeInsets.only(top: 20, left: 20),
           alignment: Alignment.centerLeft,
-          child:
-            const Text(
-              'Trending',
-              style: TextStyle(
+          child: const Text(
+            'Trending',
+            style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.white
-              ),
-            ),
+                color: Colors.white),
+          ),
         ),
         const SizedBox(height: 16.0),
         isLoading
             ? const CircularProgressIndicator()
             : SizedBox(
-              height: 120,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: trending.length,
-                  itemBuilder: (context, index) {
-                    return HomeTrendingModel(
-                      ticker: trending[index],
-                      tickerChangePercent: '12',
-                      tickerCurrentPrice: '12',
-                      tickerImage: 'https://picsum.photos/200/300',
-                      tickerName: trending[index],
-                    );
-                  }
-                )
-            )
+                height: 100,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: trending.length,
+                    itemBuilder: (context, index) {
+                      return HomeTrendingModel(
+                        ticker: trending[index],
+                        tickerChangePercent: '12',
+                        tickerCurrentPrice: '12',
+                        tickerImage: 'https://picsum.photos/200/300',
+                        tickerName: trending[index],
+                      );
+                    }))
       ],
     );
-}
+  }
 }

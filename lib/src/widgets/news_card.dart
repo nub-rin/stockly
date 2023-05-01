@@ -96,7 +96,7 @@ class NewsCards extends StatelessWidget {
                         SizedBox(width: 7),
                         Text(source,
                             style: TextStyle(
-                              fontSize: 10,
+                              fontSize: 9,
                               color: Colors.white,
                             )),
                       ],

@@ -428,7 +428,7 @@ class _QuizScreenState extends State<QuizScreen> {
             controller: _pageController,
             itemCount: quizListData.length,
             onPageChanged: (page) {
-              print("Current page $page");
+              // print("Current page $page");
               setState(
                 () {
                   questionIndex = page;
