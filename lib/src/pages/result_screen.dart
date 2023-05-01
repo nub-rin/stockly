@@ -56,6 +56,9 @@ class ResultScreen extends StatelessWidget {
         ),
         Column(
           children: [
+            SizedBox(
+              height: 70,
+            ),
             Text(
               userPercentage < 50
                   ? "Better Luck Next Time"
@@ -66,11 +69,11 @@ class ResultScreen extends StatelessWidget {
                   fontFamily: 'TanseekModernProArabic',
                   fontSize: 22,
                   letterSpacing: 1,
-                  color: userPercentage < 50 ? Colors.red : Colors.blue,
+                  color: userPercentage < 50 ? Colors.red : Colors.lightGreen,
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 20,
+              height: 40,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -87,21 +90,19 @@ class ResultScreen extends StatelessWidget {
                       fontFamily: 'TanseekModernProArabic',
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      color: userPercentage < 60
-                          ? Colors.red
-                          : const Color(0xFF437B85),
+                      color:
+                          userPercentage < 60 ? Colors.red : Colors.lightGreen,
                     ),
                   ),
                   circularStrokeCap: CircularStrokeCap.round,
-                  progressColor: userPercentage < 60
-                      ? Colors.red
-                      : const Color(0xFF437B85),
-                  backgroundColor: const Color(0xFFE8914F),
+                  progressColor:
+                      userPercentage < 60 ? Colors.red : Colors.lightGreen,
+                  backgroundColor: Colors.grey,
                 ),
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 50,
             ),
             Text(
               'Your Final Result is $userPercentage%',
@@ -143,7 +144,7 @@ class ResultScreen extends StatelessWidget {
                   color: Colors.white),
             ),
             const SizedBox(
-              height: 20,
+              height: 40,
             ),
             ElevatedButton(
               onPressed: () {
@@ -153,6 +154,12 @@ class ResultScreen extends StatelessWidget {
                     ),
                     (Route<dynamic> route) => false);
               },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                padding: const EdgeInsets.symmetric(horizontal: 50),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+              ),
               child: const Text("Start Quiz Again"),
             )
           ],

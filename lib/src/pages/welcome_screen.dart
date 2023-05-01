@@ -1,19 +1,118 @@
+// import 'package:flutter/material.dart';
+// import 'package:stockly/src/pages/quiz_screen.dart';
+
+// const kPrimaryGradient = LinearGradient(
+//   colors: [Color.fromARGB(255, 70, 117, 174), Color.fromARGB(255, 0, 115, 255)],
+//   begin: Alignment.centerLeft,
+//   end: Alignment.centerRight,
+// );
+
+// class WelcomeScreen extends StatelessWidget {
+//   const WelcomeScreen({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.black,
+//       body: Stack(
+//         children: [
+//           SafeArea(
+//             child: Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 20),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   SizedBox(
+//                     height: MediaQuery.of(context).size.height * 0.29,
+//                   ),
+//                   SizedBox(
+//                     height: MediaQuery.of(context).size.height * 0.15,
+//                   ),
+//                   InkWell(
+//                     // onTap: () => Get.to(QuizScreen()),
+//                     onTap: () {
+//                       Navigator.push(
+//                           context,
+//                           MaterialPageRoute(
+//                             builder: (context) => const QuizScreen(),
+//                           ));
+//                     },
+//                     child: Container(
+//                       width: double.infinity,
+//                       alignment: Alignment.center,
+//                       padding: EdgeInsets.all(20),
+//                       decoration: BoxDecoration(
+//                           gradient: kPrimaryGradient,
+//                           borderRadius: BorderRadius.all(Radius.circular(12))),
+//                       child: Text(
+//                         "Let's Start the Quiz",
+//                         style: Theme.of(context)
+//                             .textTheme
+//                             .labelLarge
+//                             ?.copyWith(color: Colors.black),
+//                       ),
+//                     ),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ),
+//           Column(
+//             children: [],
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
+import 'package:stockly/src/pages/home.dart';
 import 'package:stockly/src/pages/quiz_screen.dart';
 
 const kPrimaryGradient = LinearGradient(
-  colors: [Color(0xFF46A0AE), Color(0xFF00FFCB)],
+  colors: [Color.fromARGB(255, 70, 117, 174), Color.fromARGB(255, 0, 115, 255)],
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
 );
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+  const WelcomeScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF053251),
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Padding(
+          padding: EdgeInsets.only(top: 10, left: 2),
+          child: Text(
+            'learning Never Stops',
+            // style: TextStyle(fontSize: 20.0),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 20, top: 10),
+          child: IconButton(
+            // Add the back button icon
+            icon: const Icon(Icons.arrow_back),
+            iconSize: 30,
+            onPressed: () {
+              // Handle back button press event
+              // Navigator.of(context).pop();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Home(),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           SafeArea(
@@ -22,66 +121,54 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 50),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: Image.asset(
+                      "lib/src/assets/images/onboarding1.png",
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.29,
-                  ),
-                  Text(
-                    "Let's Play Quiz,",
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
-                  ),
-                  Text("Enter your information Below"),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.15,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Color(0xFF1C2341),
-                        hintText: "Full Name",
-                        border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(12)))),
-                  ),
-                  // Spacer(),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.15,
+                    height: 100,
                   ),
                   InkWell(
                     // onTap: () => Get.to(QuizScreen()),
                     onTap: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const QuizScreen(),
-                          ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QuizScreen(),
+                        ),
+                      );
                     },
-                    child: Container(
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(20),
-                      decoration: BoxDecoration(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
                           gradient: kPrimaryGradient,
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
-                      child: Text(
-                        "Let's Start the Quiz",
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge
-                            ?.copyWith(color: Colors.black),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12),
+                          ),
+                        ),
+                        child: Text(
+                          "Let's Start the Quiz",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
           ),
-          Column(
-            children: [],
-          )
         ],
       ),
     );
