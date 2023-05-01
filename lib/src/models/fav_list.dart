@@ -24,13 +24,13 @@ class _FavListState extends State<FavList> {
       itemCount: widget.favList.length,
       itemBuilder: (context, index) {
         return ListTile(
-          contentPadding: const EdgeInsets.all(10.0),
+          contentPadding: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(widget.favList[index],
                   style: const TextStyle(
-                      fontSize: 24.0,
+                      fontSize: 16.0,
                       color: Colors.white,
                       fontWeight: FontWeight.w500)),
               // Text(widget.favList[index],

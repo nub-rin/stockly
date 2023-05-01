@@ -23,7 +23,8 @@ class _StockPageState extends State<StockPage> {
   List<dynamic> decodedData = [];
   List<double> decodedData2 = [];
   List<String> dates = [];
-  List<int> numbers = List.generate(1258, (index) => index);
+  // 10685
+  List<int> numbers = List.generate(10685, (index) => index);
   List<dynamic> futurePredictions = [];
   List<double> futurePredictions2 = [];
 
@@ -31,11 +32,15 @@ class _StockPageState extends State<StockPage> {
 
   @override
   Widget build(BuildContext context) {
-    String url = 'http://127.0.0.1:5000/stock/' + '${widget.stock.company}';
-    String url2 =
-        'http://127.0.0.1:5000/stock/' + '${widget.stock.company}' + '/future';
-    DateTime startDate = DateTime(2018, 4, 30);
-    for (int i = 0; i < 1288; i++) {
+    // http: //13.127.237.127:5000/stock/Apple
+    String url =
+        'http://13.127.237.127:5000/stock/' + '${widget.stock.company}';
+    String url2 = 'http://13.127.237.127:5000/stock/' +
+        '${widget.stock.company}' +
+        '/future';
+    DateTime startDate = DateTime(2010, 1, 1);
+    // 2010-01-01
+    for (int i = 0; i < 10685; i++) {
       dates.add(startDate.toString().substring(0, 10));
       startDate = startDate.add(Duration(days: 1));
     }
@@ -142,7 +147,7 @@ class _StockPageState extends State<StockPage> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.9,
+                width: MediaQuery.of(context).size.width * 3,
                 height: MediaQuery.of(context).size.height * 0.4,
                 child: SfCartesianChart(
                   plotAreaBorderWidth: 0,

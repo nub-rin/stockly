@@ -538,7 +538,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                                 vertical: 0),
                                             child: Container(
                                               height: 40,
-                                              width: 40,
+                                              width: 20,
                                               decoration: BoxDecoration(
                                                 color: Color(
                                                   int.parse(

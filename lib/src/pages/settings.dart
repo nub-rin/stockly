@@ -42,7 +42,14 @@ class _SettingsState extends State<Settings> {
                       padding: const EdgeInsets.all(16),
                       child: CircleAvatar(
                         radius: 50,
-                        backgroundImage: NetworkImage(data['photoURL']),
+                        child: ClipOval(
+                          child: Image.network(
+                            data['photoURL'],
+                            fit: BoxFit.cover, // or BoxFit.fill
+                            width: 100,
+                            height: 100,
+                          ),
+                        ),
                       ),
                     ),
                     const Divider(),
@@ -76,7 +83,9 @@ class _SettingsState extends State<Settings> {
                         ),
                       ),
                       subtitle: Text(
-                        data['phoneNumber'] == '' ? 'Not Set' : data['phoneNumber'],
+                        data['phoneNumber'] == ''
+                            ? 'Not Set'
+                            : data['phoneNumber'],
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey[600],
@@ -110,6 +119,7 @@ class _SettingsState extends State<Settings> {
                     ElevatedButton(
                       onPressed: () {
                         Auth().signOut();
+                        Navigator.popAndPushNamed(context, '/login');
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -135,9 +145,7 @@ class _SettingsState extends State<Settings> {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            }
-            ),
-            
+            }),
       ),
     );
   }

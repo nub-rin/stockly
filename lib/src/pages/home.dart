@@ -41,28 +41,51 @@ class _HomeState extends State<Home> {
                   return Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(data['photoURL']),
-                          radius: 20,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: SizedBox(
+                            width: 50,
+                            child: IconButton(
+                              icon:
+                                  Image.asset('lib/src/assets/images/logo.png'),
+                              onPressed: () {
+                                // Navigator.pushNamed(context, '/settings');
+                              },
+                            ),
+                          ),
                         ),
                         Container(
-                            padding: const EdgeInsets.only(left: 10),
+                            padding: const EdgeInsets.only(left: 120, top: 10),
                             child: Text(
                               "Hello, ${data['name']}",
                               style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 20,
+                                fontSize: 16,
                               ),
                             )),
-                        // const Spacer(),
-                        // IconButton(
-                        //   icon: const Icon(Icons.search),
-                        //   color: Colors.white,
-                        //   onPressed: () {
-                        //     print("Search");
-                        //   },
+                        // Container(
+                        //   padding: const EdgeInsets.only(top: 10),
+                        //   child: IconButton(
+                        //     icon: const Icon(
+                        //       Icons.settings,
+                        //       color: Colors.white,
+                        //     ),
+                        //     onPressed: () {
+                        //       Navigator.pushNamed(context, '/settings');
+                        //     },
+                        //   ),
                         // ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/settings');
+                          },
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage(data['photoURL']),
+                            radius: 18,
+                          ),
+                        ),
                       ],
                     ),
                   );
@@ -72,10 +95,31 @@ class _HomeState extends State<Home> {
             ),
           ),
           const HomeTrendingList(),
+          Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: const SizedBox(
+                    height: 30,
+                    child: Text(
+                      "Stocks",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           // const Spacer(),
           SizedBox(
             height: MediaQuery.of(context).size.height -
-                400, // Set a fixed height for the container
+                420, // Set a fixed height for the container
             child: StockList(stocks: Stock.getAll()),
           ),
         ],

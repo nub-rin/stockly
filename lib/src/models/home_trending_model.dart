@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class HomeTrendingModel extends StatefulWidget {
   final String ticker;
   final String tickerName;
-  final String tickerImage;
+  // final String tickerImage;
   final String tickerCurrentPrice;
   final String tickerChangePercent;
 
@@ -11,7 +11,7 @@ class HomeTrendingModel extends StatefulWidget {
     super.key,
     required this.ticker,
     required this.tickerName,
-    required this.tickerImage,
+    // required this.tickerImage,
     required this.tickerCurrentPrice,
     required this.tickerChangePercent,
   });
@@ -31,25 +31,9 @@ class _HomeTrendingModelState extends State<HomeTrendingModel> {
         color: Colors.grey[900],
         borderRadius: BorderRadius.circular(30),
       ),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(30),
       child: Column(
         children: [
-          Row(
-            children: [
-              Image.network(
-                widget.tickerImage,
-                width: 30,
-                height: 30,
-              ),
-              // space
-              const Spacer(
-                flex: 1,
-              ),
-            ],
-          ),
-          const Spacer(
-            flex: 1,
-          ),
           Row(
             children: [
               Text(
@@ -70,6 +54,12 @@ class _HomeTrendingModelState extends State<HomeTrendingModel> {
                 ),
               ),
             ],
+          ),
+          const Spacer(
+            flex: 1,
+          ),
+          const Spacer(
+            flex: 1,
           ),
           Row(
             children: [
