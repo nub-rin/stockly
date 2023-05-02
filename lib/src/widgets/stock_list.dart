@@ -105,7 +105,7 @@ class _StockListState extends State<StockList> {
                       // } else {
                       //   UserData().removeFavorite(stock.symbol!);
                       // }
-                      stock.isFavorite = true;
+                      // stock.isFavorite = true;
                     });
                   },
                   child: Icon(
