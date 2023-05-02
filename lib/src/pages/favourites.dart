@@ -38,7 +38,10 @@ class _FavoriteState extends State<Favorite> {
             if (snapshot.connectionState == ConnectionState.done) {
               Map<String, dynamic> data =
                   snapshot.data!.data() as Map<String, dynamic>;
+              // List<dynamic> favList = data['favList'];
+
               List<dynamic> favList = data['favList'];
+
               if (favList.isEmpty) {
                 return const Center(
                   child: Text(

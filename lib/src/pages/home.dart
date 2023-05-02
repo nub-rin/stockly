@@ -8,9 +8,10 @@ import '../utils/user_data.dart';
 import '../widgets/home_trending_list.dart';
 import '../widgets/stock_list.dart';
 import 'favourites.dart';
+import 'package:stockly/src/models/stock.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -20,8 +21,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
@@ -65,18 +67,6 @@ class _HomeState extends State<Home> {
                                 fontSize: 16,
                               ),
                             )),
-                        // Container(
-                        //   padding: const EdgeInsets.only(top: 10),
-                        //   child: IconButton(
-                        //     icon: const Icon(
-                        //       Icons.settings,
-                        //       color: Colors.white,
-                        //     ),
-                        //     onPressed: () {
-                        //       Navigator.pushNamed(context, '/settings');
-                        //     },
-                        //   ),
-                        // ),
                         InkWell(
                           onTap: () {
                             Navigator.pushNamed(context, '/settings');
@@ -95,36 +85,49 @@ class _HomeState extends State<Home> {
             ),
           ),
           const HomeTrendingList(),
-          Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.only(top: 20, left: 20),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: const SizedBox(
-                    height: 30,
-                    child: Text(
-                      "Stocks",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+          Expanded(
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: const SizedBox(
+                      height: 30,
+                      child: Text(
+                        "Stocks",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          // const Spacer(),
-          SizedBox(
-            height: MediaQuery.of(context).size.height -
-                420, // Set a fixed height for the container
-            child: StockList(stocks: Stock.getAll()),
+                Expanded(
+                  child: FutureBuilder<List<Stock>>(
+                    future: Stock.getAll(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return StockList(stocks: snapshot.data!);
+                      } else if (snapshot.hasError) {
+                        return Center(
+                          child: Text('${snapshot.error}'),
+                        );
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
-      backgroundColor: const Color.fromARGB(1, 30, 30, 30),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
