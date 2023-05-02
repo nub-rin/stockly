@@ -421,7 +421,7 @@ class _LoginState extends State<Login> {
                               emailController.text,
                               passwordController.text,
                               context);
-                            Navigator.pushNamed(context, StocklyRoutes.homeRoute);
+                            Navigator.popAndPushNamed(context, StocklyRoutes.homeRoute);
                         },
                         child: const Text('Login',
                             style: TextStyle(
@@ -468,7 +468,7 @@ class _LoginState extends State<Login> {
                   onPressed: () async {
                     await Auth().signInWithGoogle(context);
                     // ignore: use_build_context_synchronously
-                    Navigator.pushNamed(context, StocklyRoutes.homeRoute);
+                    Navigator.popAndPushNamed(context, StocklyRoutes.homeRoute);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
