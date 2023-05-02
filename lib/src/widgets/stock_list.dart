@@ -40,11 +40,9 @@ class _StockListState extends State<StockList> {
 
         return GestureDetector(
           onTap: () {
-            // Push a new Stock page onto the navigation stack
             Navigator.push(
               context,
               MaterialPageRoute(
-                // builder: (context) => StockPage(stock: stock),
                 builder: (context) => StockPage(
                   stock: stock,
                 ),
@@ -94,14 +92,6 @@ class _StockListState extends State<StockList> {
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
                     ),
-                    // child: Text(
-                    //   "${stock.change}%",
-                    //   style: TextStyle(
-                    //     fontSize: 12.0,
-                    //     color: (stock.change! < 0) ? Colors.red : Colors.green,
-                    //     fontWeight: FontWeight.w500,
-                    //   ),
-                    // ),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -110,6 +100,12 @@ class _StockListState extends State<StockList> {
                     UserData().addFavorite(stock.symbol!);
                     setState(() {
                       _isFavoriteList[index] = !_isFavoriteList[index];
+                      // if (_isFavoriteList[index]) {
+                      //   UserData().addFavorite(stock.symbol!);
+                      // } else {
+                      //   UserData().removeFavorite(stock.symbol!);
+                      // }
+                      stock.isFavorite = true;
                     });
                   },
                   child: Icon(
