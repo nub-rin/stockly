@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import './change_details.dart';
 import '../utils/authentication.dart';
 import '../utils/user_data.dart';
+import 'login.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -117,9 +118,10 @@ class _SettingsState extends State<Settings> {
                     ),
                     const SizedBox(height: 32),
                     ElevatedButton(
-                      onPressed: () {
-                        Auth().signOut();
-                        Navigator.popAndPushNamed(context, '/login');
+                      onPressed: () async {
+                        await Auth().signOut();
+                        // ignore: use_build_context_synchronously
+                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const Login()), (Route<dynamic> route) => false);
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -149,4 +151,7 @@ class _SettingsState extends State<Settings> {
       ),
     );
   }
+}
+
+class LoginScreen {
 }

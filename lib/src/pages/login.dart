@@ -395,7 +395,7 @@ class _LoginState extends State<Login> {
                       ),
                       width: 360,
                       child: TextButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (emailController.text.isEmpty ||
                               passwordController.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -417,10 +417,11 @@ class _LoginState extends State<Login> {
                             return;
                           }
 
-                          Auth().signInWithEmailAndPassword(
+                          await Auth().signInWithEmailAndPassword(
                               emailController.text,
                               passwordController.text,
                               context);
+                            Navigator.pushNamed(context, StocklyRoutes.homeRoute);
                         },
                         child: const Text('Login',
                             style: TextStyle(
@@ -464,8 +465,10 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.circular(20)),
                 width: 360,
                 child: TextButton(
-                  onPressed: () {
-                    Auth().signInWithGoogle(context);
+                  onPressed: () async {
+                    await Auth().signInWithGoogle(context);
+                    // ignore: use_build_context_synchronously
+                    Navigator.pushNamed(context, StocklyRoutes.homeRoute);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
