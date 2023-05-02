@@ -57,12 +57,12 @@ class _StockListState extends State<StockList> {
             title: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text("${stock.symbol}",
+                Text("${stock.company}",
                     style: const TextStyle(
                         fontSize: 16.0,
                         color: Colors.white,
                         fontWeight: FontWeight.w500)),
-                Text("${stock.company}",
+                Text("${stock.symbol}",
                     style: TextStyle(
                         fontSize: 14.0,
                         color: Colors.grey[500],
@@ -84,7 +84,7 @@ class _StockListState extends State<StockList> {
                   alignment: Alignment.centerRight,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
-                    color: Colors.red,
+                    color: (stock.change! < 0) ? Colors.red : Colors.green,
                   ),
                   child: Center(
                     child: Text(
@@ -94,12 +94,20 @@ class _StockListState extends State<StockList> {
                           color: Colors.white,
                           fontWeight: FontWeight.w500),
                     ),
+                    // child: Text(
+                    //   "${stock.change}%",
+                    //   style: TextStyle(
+                    //     fontSize: 12.0,
+                    //     color: (stock.change! < 0) ? Colors.red : Colors.green,
+                    //     fontWeight: FontWeight.w500,
+                    //   ),
+                    // ),
                   ),
                 ),
                 const SizedBox(width: 10),
                 GestureDetector(
                   onTap: () {
-                    UserData().addFavorite('${stock.symbol}');
+                    UserData().addFavorite(stock.symbol!);
                     setState(() {
                       _isFavoriteList[index] = !_isFavoriteList[index];
                     });

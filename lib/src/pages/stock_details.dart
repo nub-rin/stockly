@@ -33,10 +33,9 @@ class _StockPageState extends State<StockPage> {
   @override
   Widget build(BuildContext context) {
     // http: //13.127.237.127:5000/stock/Apple
-    String url =
-        'http://13.127.237.127:5000/stock/' + '${widget.stock.company}';
+    String url = 'http://13.127.237.127:5000/stock/' + '${widget.stock.symbol}';
     String url2 = 'http://13.127.237.127:5000/stock/' +
-        '${widget.stock.company}' +
+        '${widget.stock.symbol}' +
         '/future';
     DateTime startDate = DateTime(2010, 1, 1);
     // 2010-01-01
@@ -47,7 +46,7 @@ class _StockPageState extends State<StockPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text('${widget.stock.company}'),
+        title: Text('${widget.stock.symbol}'),
         backgroundColor: Colors.black,
       ),
       body: Column(
@@ -100,7 +99,7 @@ class _StockPageState extends State<StockPage> {
                 ),
               ),
               child: Text(
-                'Fetch closing price Graph of ${widget.stock.company}',
+                'Fetch closing price Graph of ${widget.stock.symbol}',
                 style: TextStyle(
                   fontSize: 10,
                   color: Colors.blue,
@@ -134,7 +133,7 @@ class _StockPageState extends State<StockPage> {
                 ),
               ),
               child: Text(
-                'Fetch Predicted Future price Graph of ${widget.stock.company}',
+                'Fetch Predicted Future price Graph of ${widget.stock.symbol}',
                 style: TextStyle(
                   fontSize: 10,
                   color: Colors.lightGreen,
@@ -190,7 +189,7 @@ class _StockPageState extends State<StockPage> {
                     labelStyle: TextStyle(color: Colors.white),
                   ),
                   title: ChartTitle(
-                      text: 'Closing Price of ${widget.stock.company}',
+                      text: 'Closing Price of ${widget.stock.symbol}',
                       textStyle: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
