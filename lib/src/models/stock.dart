@@ -160,9 +160,13 @@ class Stock {
   final String? symbol;
   final double? price;
   final double? change;
-  final bool? isFavorite;
+  final bool isFavorite = false;
 
-  Stock({this.company, this.symbol, this.price, this.change, this.isFavorite});
+  set isFavorite(bool value) {
+    this.isFavorite = value;
+  }
+
+  Stock({this.company, this.symbol, this.price, this.change});
 
   static Future<List<Stock>> getAll() async {
     final List<String> symbols = [
@@ -198,7 +202,6 @@ class Stock {
             symbol: symbol,
             price: double.parse(quote['05. price']),
             change: double.parse(quote['09. change']),
-            isFavorite: false,
           ),
         );
       } else {
