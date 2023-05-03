@@ -77,6 +77,14 @@ class _StockListState extends State<StockList> {
                         fontWeight: FontWeight.w500)),
                 const SizedBox(width: 10),
                 Container(
+                  child: Icon(
+                    (stock.change! < 0)
+                        ? Icons.arrow_drop_down
+                        : Icons.arrow_drop_up,
+                    color: (stock.change! < 0) ? Colors.red : Colors.green,
+                  ),
+                ),
+                Container(
                   width: 50,
                   height: MediaQuery.of(context).size.height * 0.021,
                   alignment: Alignment.centerRight,
