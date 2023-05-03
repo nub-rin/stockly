@@ -118,7 +118,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.lightBlue,
                           )),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
