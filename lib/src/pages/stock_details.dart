@@ -14,16 +14,9 @@ class StockPage extends StatefulWidget {
 }
 
 class _StockPageState extends State<StockPage> {
-  // String url = 'http://127.0.0.1:8000/stock/${widget.stock.company}';
-  // String url2 = 'http://127.0.0.1:8000/stock/${widget.stock.company}/future';
-  // String url =
-  //     'http://ec2-54-95-231-4.ap-northeast-1.compute.amazonaws.com/stock/amzn';
-  // String url2 =
-  //     'http://ec2-54-95-231-4.ap-northeast-1.compute.amazonaws.com/stock/amzn/future';
   List<dynamic> decodedData = [];
   List<double> decodedData2 = [];
   List<String> dates = [];
-  // 10685
   List<int> numbers = List.generate(10685, (index) => index);
   List<dynamic> futurePredictions = [];
   List<double> futurePredictions2 = [];
@@ -32,7 +25,6 @@ class _StockPageState extends State<StockPage> {
 
   @override
   Widget build(BuildContext context) {
-    // http: //13.127.237.127:5000/stock/Apple
     String url = 'http://13.127.237.127:5000/stock/' + '${widget.stock.symbol}';
     String url2 = 'http://13.127.237.127:5000/stock/' +
         '${widget.stock.symbol}' +
@@ -72,7 +64,91 @@ class _StockPageState extends State<StockPage> {
                     color: Colors.red,
                     fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 8.0),
+              // Text(
+              //   'High: \$${widget.stock.high}',
+              //   style: const TextStyle(
+              //       fontSize: 18.0,
+              //       color: Colors.white,
+              //       fontWeight: FontWeight.bold),
+              // ),
+              // const SizedBox(height: 8.0),
+              // Text(
+              //   'Low: \$${widget.stock.low}',
+              //   style: const TextStyle(
+              //       fontSize: 18.0,
+              //       color: Colors.white,
+              //       fontWeight: FontWeight.bold),
+              // ),
+              // const SizedBox(height: 8.0),
+              // Text(
+              //   'Open: \$${widget.stock.open}',
+              //   style: const TextStyle(
+              //       fontSize: 18.0,
+              //       color: Colors.white,
+              //       fontWeight: FontWeight.bold),
+              // ),
+              // const SizedBox(height: 8.0),
+              // Text(
+              //   'Previous Close: \$${widget.stock.previousClose}',
+              //   style: const TextStyle(
+              //       fontSize: 18.0,
+              //       color: Colors.white,
+              //       fontWeight: FontWeight.bold),
+              // ),
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'High: \$${widget.stock.high}',
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Low: \$${widget.stock.low}',
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 15.0),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Open: \$${widget.stock.open}',
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        'Previous Close: \$${widget.stock.previousClose}',
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, top: 20),

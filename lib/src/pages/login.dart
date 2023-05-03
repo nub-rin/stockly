@@ -421,7 +421,7 @@ class _LoginState extends State<Login> {
                               emailController.text,
                               passwordController.text,
                               context);
-                            Navigator.popAndPushNamed(context, StocklyRoutes.onboardingRoute);
+                            Navigator.popAndPushNamed(context, StocklyRoutes.homeRoute);
                         },
                         child: const Text('Login',
                             style: TextStyle(
