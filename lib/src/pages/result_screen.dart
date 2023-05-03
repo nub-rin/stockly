@@ -22,7 +22,7 @@ class ResultScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
-        title: Padding(
+        title: const Padding(
           padding: EdgeInsets.only(top: 10, left: 2),
           child: Text(
             'Your Results',
