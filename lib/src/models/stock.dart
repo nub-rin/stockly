@@ -161,12 +161,24 @@ class Stock {
   final double? price;
   final double? change;
   final bool isFavorite = false;
+  final double? high;
+  final double? low;
+  final double? open;
+  final double? previousClose;
 
   set isFavorite(bool value) {
     this.isFavorite = value;
   }
 
-  Stock({this.company, this.symbol, this.price, this.change});
+  Stock(
+      {this.company,
+      this.symbol,
+      this.price,
+      this.change,
+      this.high,
+      this.low,
+      this.open,
+      this.previousClose});
 
   static Future<List<Stock>> getAll() async {
     final List<String> symbols = [
@@ -202,6 +214,10 @@ class Stock {
             symbol: symbol,
             price: double.parse(quote['05. price']),
             change: double.parse(quote['09. change']),
+            high: double.parse(quote['03. high']),
+            low: double.parse(quote['04. low']),
+            open: double.parse(quote['02. open']),
+            previousClose: double.parse(quote['08. previous close']),
           ),
         );
       } else {
