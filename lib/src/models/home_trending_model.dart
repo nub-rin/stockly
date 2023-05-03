@@ -25,10 +25,11 @@ class _HomeTrendingModelState extends State<HomeTrendingModel> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
-      width: 250,
+      width: 200,
       height: 120,
       decoration: BoxDecoration(
         color: Colors.grey[900],
+        
         borderRadius: BorderRadius.circular(30),
       ),
       padding: const EdgeInsets.all(30),

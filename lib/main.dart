@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:stockly/src/pages/change_details.dart';
 import 'package:stockly/src/pages/login.dart';
 import 'package:stockly/src/pages/home.dart';
 import 'package:stockly/src/pages/onBoarding.dart';
 import 'package:stockly/src/pages/settings.dart';
 import 'package:stockly/src/pages/signup.dart';
+import 'package:stockly/src/utils/notification_service.dart';
 import 'package:stockly/src/utils/routes.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -13,6 +15,9 @@ import 'src/utils/authentication.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  NotificationService().initialiseNotification();
+  NotificationService().sendScheduleNotification('Stockly', 'Check out the latest stock trends today!!');
+  NotificationService().sendScheduleNotification('Stockly', 'Check out how your stocks peformed today!!');
   runApp(const Stockly());
 }
 

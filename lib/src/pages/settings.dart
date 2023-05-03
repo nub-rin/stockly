@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/notification_service.dart';
 import './change_details.dart';
 import '../utils/authentication.dart';
 import '../utils/user_data.dart';
@@ -141,6 +142,24 @@ class _SettingsState extends State<Settings> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 32),
+                    ElevatedButton(
+                      onPressed: () {
+                        NotificationService().sendNotification(
+                            'Stockly - Stock Market, Made Easy', 'This is a test notification to show how the notification system works.');
+                      },
+                      child: const Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          'Test Notification',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 );
               }
