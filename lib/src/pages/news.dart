@@ -33,13 +33,17 @@ class _NewsPageState extends State<NewsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.newspaper),
-            SizedBox(width: 10),
-            Text('News'),
-          ],
+        centerTitle: true,
+        title: Padding(
+          padding: const EdgeInsets.only(right: 55),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.newspaper),
+              SizedBox(width: 10),
+              Text('News'),
+            ],
+          ),
         ),
         backgroundColor: Colors.black,
       ),
