@@ -30,6 +30,8 @@ class _StockPageState extends State<StockPage> {
         '${widget.stock.symbol}' +
         '/future';
     DateTime startDate = DateTime(2010, 1, 1);
+
+    DateTime endDate = DateTime.now();
     // 2010-01-01
     for (int i = 0; i < 10685; i++) {
       dates.add(startDate.toString().substring(0, 10));
@@ -65,37 +67,6 @@ class _StockPageState extends State<StockPage> {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8.0),
-              // Text(
-              //   'High: \$${widget.stock.high}',
-              //   style: const TextStyle(
-              //       fontSize: 18.0,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.bold),
-              // ),
-              // const SizedBox(height: 8.0),
-              // Text(
-              //   'Low: \$${widget.stock.low}',
-              //   style: const TextStyle(
-              //       fontSize: 18.0,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.bold),
-              // ),
-              // const SizedBox(height: 8.0),
-              // Text(
-              //   'Open: \$${widget.stock.open}',
-              //   style: const TextStyle(
-              //       fontSize: 18.0,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.bold),
-              // ),
-              // const SizedBox(height: 8.0),
-              // Text(
-              //   'Previous Close: \$${widget.stock.previousClose}',
-              //   style: const TextStyle(
-              //       fontSize: 18.0,
-              //       color: Colors.white,
-              //       fontWeight: FontWeight.bold),
-              // ),
             ],
           ),
           Padding(
