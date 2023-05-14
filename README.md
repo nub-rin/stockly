@@ -10,10 +10,13 @@ This repository contains the source code and assets for a Stock Trend Prediction
 
 # Features
 User-friendly Interface: The app follows Human Design principles, ensuring an intuitive and visually appealing interface that is easy to navigate.
+
 Stock Trend Prediction: By leveraging Machine Learning algorithms, the app predicts the trends of various stocks, helping users make informed investment choices.
-Real-time Stock Data: The app fetches real-time stock data from reliable financial data sources, ensuring the accuracy and timeliness of information.
-Interactive Charts: Users can visualize stock trends through interactive charts that provide a clear representation of historical and predicted data.
+
+Real-time Stock Data: The app fetches real-time stock data from reliable financial data sources and shows that in the form of a graph.
+
 Personalized Watchlists: Users can create personalized watchlists to track their favorite stocks and receive notifications about significant changes in stock performance.
+
 News and Insights: The app provides relevant news articles and insights about the stock market to help users stay informed about market trends and make informed decisions.
 
 # Contributing
