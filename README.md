@@ -1,8 +1,8 @@
 # Stockly - Stock Trend Prediction Mobile App
 
-New investors find stock market frustrating as prior research and knowledge of current status of particular stock is required before investing therefore an investor feels overwhelmed while collecting all the information .
+New investors find stock market frustrating as prior research and knowledge of current status of particular stock is required before investing therefore an investor feels overwhelmed while collecting all the information.
 
-Just to avoid that we have created an application which provides user with all the pre-requisites such as latest news and  analysis of a specific stock which will help user while investing in stock market .
+Just to avoid that we have created an application which provides user with all the pre-requisites such as latest news and  analysis of a specific stock which will help user while investing in stock market.
 
 This repository contains the source code and assets for a Stock Trend Prediction Mobile App developed using Flutter. The app incorporates Human Design principles to provide an intuitive and user-friendly experience. It utilizes Machine Learning techniques to predict stock trends and assist users in making informed investment decisions.
 
