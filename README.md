@@ -32,7 +32,7 @@ If you'd like to contribute to this project, please follow these steps:
 
 ![](https://github.com/AryanGandotra/stockly-1/blob/main/Images/Screenshot%202023-05-14%20at%203.31.46%20PM.png)
 
-# User Interface
+# User Interface Images
 
 Login Page
 
