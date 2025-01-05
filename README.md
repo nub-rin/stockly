@@ -28,24 +28,24 @@ If you'd like to contribute to this project, please follow these steps:
 
 4. Submit a pull request, explaining your changes in detail and providing any necessary documentation.
 
-# System Architecture
+# System Architecture Image
 
 ![](https://github.com/AryanGandotra/stockly-1/blob/main/Images/Screenshot%202023-05-14%20at%203.31.46%20PM.png)
 
 # User Interface Images
 
-Login Page
+Login Page Image
 
 ![](https://github.com/AryanGandotra/stockly-1/blob/main/Images/Screenshot%202023-05-14%20at%203.32.17%20PM.png)
 
-Home Page
+Home Page Image
 
 ![](https://github.com/AryanGandotra/stockly-1/blob/main/Images/Screenshot%202023-05-14%20at%203.32.07%20PM.png)
 
-Stock Data And Future Prediction 
+Stock Data And Future Prediction Page Image
 
 ![](https://github.com/AryanGandotra/stockly-1/blob/main/Images/Screenshot%202023-05-14%20at%203.32.32%20PM.png)
 
-News Page
+News Page Image
 
 ![](https://github.com/AryanGandotra/stockly-1/blob/main/Images/Screenshot%202023-05-14%20at%203.32.42%20PM.png)
