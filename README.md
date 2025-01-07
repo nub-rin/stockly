@@ -1,4 +1,4 @@
-# Stockly - Stock Trend Prediction Mobile App
+# Stockly | Stock Trend Prediction Mobile App
 
 New investors find stock market frustrating as prior research and knowledge of current status of particular stock is required before investing therefore an investor feels overwhelmed while collecting all the information.
 
