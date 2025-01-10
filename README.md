@@ -18,7 +18,7 @@ This repository contains the source code and assets for a Stock Trend Prediction
 5. **News and Insights**: The app provides relevant news articles and insights about the stock market to help users stay informed about market trends and make informed decisions.
 
 # Contributing
-If you'd like to contribute to this project, please follow these steps:
+If you'd like to contribute to this project, please follow the steps mentioned below:
 
 1. Fork the repository.
 
